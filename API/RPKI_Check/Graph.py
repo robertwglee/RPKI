@@ -17,9 +17,6 @@ df = pd.read_csv(csvfile, sep = ",")
 dfg=df.groupby('RPKI_Status').count().reset_index()
 dfg=dfg.rename(columns={"ASN": "ASN"})
 
-# plot structure
-## Pie Graph
-# plot structure
 fig = px.pie(dfg,
              names ='RPKI_Status',
              values ='ASN',
@@ -31,16 +28,16 @@ fig = px.pie(dfg,
              #barmode='stack',
              labels={'RPKI_Status': 'RPKI Status', 'ASN':'AS812 Advertised Routes'})
 fig.update_traces(textposition='inside', textinfo='value+label')
-## Bar Graph
+# Bar Graph
 # fig = px.bar(dfg,
 #              x='RPKI_Status',
 #              y='ASN',
-#              title='Rogers RPKI Status Check',
+#              title='RPKI Status Check',
 #              color='RPKI_Status',
 #              barmode='stack',
 #              labels={'RPKI_Status': 'RPKI Status', 'ASN':'AS812 Advertised Routes'}
 #              )
-# # fig.update_traces(marker_color='aquamarine')
-# # plot
-# fig.show()
+# fig.update_traces(marker_color='aquamarine')
+# plot
+fig.show()
 fig.write_image("images/fig1.png")
