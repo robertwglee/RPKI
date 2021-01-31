@@ -18,7 +18,6 @@ handler = logging.handlers.SysLogHandler(address = (log_ip, 514))
 my_logger.addHandler(handler)
 #end of logger creation
 # define file
-# local_file_name = "/home/rob/RPKI_Checks/Daily_Checks/RPKI_Daily_checks_" + datetime.datetime.fromtimestamp(time.time()).strftime('%Y_%m_%d_%H_%M')+ ".csv"
 local_file_name = "RPKI_Daily_checks_" + datetime.datetime.fromtimestamp(time.time()).strftime('%Y_%m_%d_%H_%M')+ ".csv"
 with open(local_file_name, "w", newline='' ) as csv_file:
     writer = csv.writer(csv_file, delimiter=',' )
